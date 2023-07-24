@@ -4,6 +4,8 @@ const cors = require('cors');
 const app = express();
 const port = 4000;
 
+let subscribedEmails = ['forbidden@gmail.com'];
+
 app.use(cors({ origin: 'http://localhost:3000' }));
 
 app.use(express.json());
@@ -49,10 +51,12 @@ app.get('/community', (req, res) => {
 
 app.post('/subscribe', (req, res) => {
     const { email } = req.body;
-    if (email === 'forbidden@gmail.com') {
+    if (subscribedEmails.includes(email)) {
         res.status(422).json({ "error": "Email is already in use" });
+    } else {
+        subscribedEmails.push(email);
+        res.send({"message": "Thank you for subscribing!"})
     }
-    res.send({"message": "Thank you for subscribing!"})
 });
 
 app.listen(port, () => {
