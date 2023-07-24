@@ -55,7 +55,20 @@ app.post('/subscribe', (req, res) => {
         res.status(422).json({ "error": "Email is already in use" });
     } else {
         subscribedEmails.push(email);
-        res.send({"message": "Thank you for subscribing!"})
+        res.send({ "message": "Thank you for subscribing!" });
+    }
+});
+
+app.post('/unsubscribe', (req, res) => {
+    const { email } = req.body;
+    if (subscribedEmails.includes(email)) {
+        const index = subscribedEmails.findIndex((item) => item === email);
+        if (index !== -1) {
+            subscribedEmails.splice(index, 1);
+        }
+        res.send({ "message": "We will miss you!" });
+    } else {
+        res.status(422).json({ "error": "Email does not exist" });
     }
 });
 
