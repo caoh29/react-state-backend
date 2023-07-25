@@ -10,10 +10,6 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-});
-
 app.get('/community', (req, res) => {
     res.send({
         "description": "We're proud of our products, and we're really excited when we get feedback from our users.",
