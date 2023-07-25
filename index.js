@@ -46,19 +46,19 @@ app.get('/community', (req, res) => {
 });
 
 app.post('/subscribe', (req, res) => {
-    const { email } = req.body;
-    if (subscribedEmails.includes(email)) {
+    const { data } = req.body;
+    if (subscribedEmails.includes(data)) {
         res.status(422).json({ "error": "Email is already in use" });
     } else {
-        subscribedEmails.push(email);
+        subscribedEmails.push(data);
         res.send({ "message": "Thank you for subscribing!" });
     }
 });
 
 app.post('/unsubscribe', (req, res) => {
-    const { email } = req.body;
-    if (subscribedEmails.includes(email)) {
-        const index = subscribedEmails.findIndex((item) => item === email);
+    const { data } = req.body;
+    if (subscribedEmails.includes(data)) {
+        const index = subscribedEmails.findIndex((item) => item === data);
         if (index !== -1) {
             subscribedEmails.splice(index, 1);
         }
