@@ -16,7 +16,7 @@ app.get('/community', (req, res) => {
         "data": [
             {
                 "name": "Larry",
-                "photo": "",
+                "photo": "https://via.placeholder.com/150x150",
                 "resume": "Lorem ipsilum",
                 "company": {
                     "name": "Facebook",
@@ -25,7 +25,7 @@ app.get('/community', (req, res) => {
             },
             {
                 "name": "Mathew",
-                "photo": "",
+                "photo": "https://via.placeholder.com/150x150",
                 "resume": "Lorem ipsilum",
                 "company": {
                     "name": "Apple",
@@ -34,7 +34,7 @@ app.get('/community', (req, res) => {
             },
             {
                 "name": "Camilo",
-                "photo": "",
+                "photo": "https://via.placeholder.com/150x150",
                 "resume": "Lorem ipsilum",
                 "company": {
                     "name": "Google",
