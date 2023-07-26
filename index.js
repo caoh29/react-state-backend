@@ -47,6 +47,8 @@ app.get('/community', (req, res) => {
 
 app.post('/subscribe', (req, res) => {
     const { data } = req.body;
+    if (!data) res.status(422).json({ "error": "Email is required" });
+    
     if (subscribedEmails.includes(data)) {
         res.status(422).json({ "error": "Email is already in use" });
     } else {
@@ -57,6 +59,7 @@ app.post('/subscribe', (req, res) => {
 
 app.post('/unsubscribe', (req, res) => {
     const { data } = req.body;
+    if (!data) res.status(422).json({ "error": "Email is required" });
     if (subscribedEmails.includes(data)) {
         const index = subscribedEmails.findIndex((item) => item === data);
         if (index !== -1) {
