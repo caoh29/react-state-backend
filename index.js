@@ -12,7 +12,6 @@ app.use(express.json());
 
 app.get('/community', (req, res) => {
     res.send({
-        "description": "We're proud of our products, and we're really excited when we get feedback from our users.",
         "data": [
             {
                 "name": "Larry",
